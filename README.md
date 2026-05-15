@@ -28,6 +28,15 @@ VS code shortcuts to resemble linux, add support for tab changes, correct ctrl b
 * OnyX
 * Mackup
 
+## Defaults
+```
+defaults write com.apple.dock "autohide-time-modifier" -float "0.2"
+defaults write com.apple.dock "autohide-delay" -float "0.1"
+defaults write com.apple.dock "show-recents" -bool "false"
+killall Dock
+```
+reference: https://macos-defaults.com/
+
 ## Etc
-# my PS1
+# my PS1 (old)
 `PS1='\n\D{%Y-%m-%d %H:%M} \u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '`
