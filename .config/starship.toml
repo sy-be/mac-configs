@@ -1,0 +1,60 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[░▒▓](#a3aed2)\
+[ <U+F120> $username$hostname](bg:#a3aed2 fg:#090c0c)\
+[<U+E0B4>](bg:#769ff0 fg:#a3aed2)\
+$directory\
+[<U+E0B4>](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_status\
+[<U+E0B4>](fg:#394260 bg:#444b6a)\
+$kubernetes\
+[<U+E0B4>](fg:#394260 bg:#212736)\
+${custom.date}\
+[<U+E0B4>](fg:#212736 bg:#1d2230)\
+$time\
+[<U+E0B4> ](fg:#1d2230)\
+\n$character"""
+
+[directory]
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[ $path ]($style)"
+truncation_length = 8
+truncate_to_repo = false
+
+[directory.substitutions]
+"Documents" = "<U+F0219> "
+"Downloads" = "<U+F019> "
+"Music" = "<U+F001> "
+"Pictures" = "<U+F03E> "
+
+[git_branch]
+symbol = "<U+F418>"
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+
+[git_status]
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+
+[custom.date]
+command = "date +%Y-%m-%d"
+when = "true"
+symbol = "<U+F455>"
+style = "bg:#212736"
+format = '[[ $symbol $output ](fg:#769ff0 bg:#212736)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ <U+F43A> $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[username]
+style_user = "bg:#a3aed2 fg:#090c0c"
+
+[kubernetes]
+disabled = false
+style = "bg:#444b6a"
+format = '[[ $symbol $context( \($namespace\))](fg:#769ff0 bg:#444b6a)]($style)'
